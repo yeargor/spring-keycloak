@@ -1,0 +1,21 @@
+body {
+    background-color: #fafae8;
+}
+
+.container {
+    max-width: 600px;
+    background-color: #ffffff;
+}
+.form-label {
+    font-weight: 600;
+}
+.form-control {
+    width: 100%;
+}
+.form-inline .form-control {
+    width: auto;
+}
+
+.d-flex button, a {
+    margin-right: 10px;
+}

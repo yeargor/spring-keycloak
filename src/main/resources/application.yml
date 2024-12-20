@@ -1,0 +1,29 @@
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/Yahor
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/Yahor
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: yahor-api
+            client-secret: m0MxyPa94SAGkQEldKFwcytnifbPcfkB
+            scope: openid
+  web:
+    resources:
+      add-mappings: true
+
+server:
+  port: 8081
