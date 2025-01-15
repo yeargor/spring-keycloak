@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://my-postgres:5432/springAuth
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: pleasecomein
+    depends_on:
+      - my-keycloak
+      - my-postgres
+    ports:
+      - "8081:8081"
+
+  my-postgres:
+    restart: on-failure
+    image: postgres
+    container_name: my-postgres
+    environment:
+      POSTGRES_DB: springAuth
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pleasecomein
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  my-keycloak:
+    restart: on-failure
+    image: keycloak/keycloak:latest
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      PROXY_ADDRESS_FORWARDING: true
+      KC_PROXY: edge
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./realm-export.json:/opt/keycloak/data/import/realm-export.json
+    command: start-dev --import-realm
+
+volumes:
+  postgres-data:
