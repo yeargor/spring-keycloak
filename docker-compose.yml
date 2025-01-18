@@ -1,21 +1,6 @@
 version: '3.8'
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: on-failure
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://my-postgres:5432/springAuth
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: pleasecomein
-    depends_on:
-      - my-keycloak
-      - my-postgres
-    ports:
-      - "8081:8081"
-
   my-postgres:
     restart: on-failure
     image: postgres
@@ -35,8 +20,7 @@ services:
     environment:
       KC_BOOTSTRAP_ADMIN_USERNAME: admin
       KC_BOOTSTRAP_ADMIN_PASSWORD: admin
-      PROXY_ADDRESS_FORWARDING: true
-      KC_PROXY: edge
+      KEYCLOAK_HOSTNAME_STRICT: false
     ports:
       - "8080:8080"
     volumes:
