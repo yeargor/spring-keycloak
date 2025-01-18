@@ -6,6 +6,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springAuth
+    username: postgres
+    password: pleasecomein
+    driver-class-name: org.postgresql.Driver
   security:
     oauth2:
       resourceserver:
@@ -19,7 +24,7 @@ spring:
         registration:
           keycloak:
             client-id: yahor-api
-            client-secret: m0MxyPa94SAGkQEldKFwcytnifbPcfkB
+            client-secret: RTH2SuOaJXK8adVFyVv7v7dyKH9tKajZ
             scope: openid
   web:
     resources:
