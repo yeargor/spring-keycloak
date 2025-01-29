@@ -1,7 +1,7 @@
-package com.crud.backend.service;
+package com.crud.backend.service.tickets;
 
-import com.crud.backend.model.Ticket;
-import com.crud.backend.repository.TicketRepository;
+import com.crud.backend.model.tickets.Ticket;
+import com.crud.backend.repository.tickets.TicketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

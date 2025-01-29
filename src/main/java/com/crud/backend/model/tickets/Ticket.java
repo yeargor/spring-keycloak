@@ -1,4 +1,4 @@
-package com.crud.backend.model;
+package com.crud.backend.model.tickets;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;

@@ -1,7 +1,7 @@
 package com.crud.backend.controller;
 
-import com.crud.backend.model.Ticket;
-import com.crud.backend.service.TicketService;
+import com.crud.backend.model.tickets.Ticket;
+import com.crud.backend.service.tickets.TicketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
